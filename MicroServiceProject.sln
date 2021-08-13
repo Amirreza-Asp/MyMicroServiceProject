@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31521.260
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4103FA5B-20A1-43A6-ACCA-80C0719EB839}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{71503646-B7CA-483D-9772-3D939CA71E82}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3435C51F-EE26-4FA5-A55F-0F3C84BC246D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{44522FDB-AFC5-4AB4-8817-4AB75ABAEC98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.API", "Services\Basket\Basket.API\Basket.API.csproj", "{46F66C52-2CCF-4101-B80A-9CCAB53AE4F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{3435C51F-EE26-4FA5-A55F-0F3C84BC246D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3435C51F-EE26-4FA5-A55F-0F3C84BC246D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3435C51F-EE26-4FA5-A55F-0F3C84BC246D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46F66C52-2CCF-4101-B80A-9CCAB53AE4F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46F66C52-2CCF-4101-B80A-9CCAB53AE4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46F66C52-2CCF-4101-B80A-9CCAB53AE4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46F66C52-2CCF-4101-B80A-9CCAB53AE4F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{969493CC-EE92-4EF6-963A-E695808E5B52} = {4103FA5B-20A1-43A6-ACCA-80C0719EB839}
 		{71503646-B7CA-483D-9772-3D939CA71E82} = {969493CC-EE92-4EF6-963A-E695808E5B52}
+		{44522FDB-AFC5-4AB4-8817-4AB75ABAEC98} = {4103FA5B-20A1-43A6-ACCA-80C0719EB839}
+		{46F66C52-2CCF-4101-B80A-9CCAB53AE4F5} = {44522FDB-AFC5-4AB4-8817-4AB75ABAEC98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF54F568-7361-4824-B8B4-3FC66A471183}
