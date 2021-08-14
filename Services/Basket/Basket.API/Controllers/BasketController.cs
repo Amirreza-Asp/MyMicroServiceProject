@@ -42,14 +42,13 @@ namespace Basket.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> UpdateBasket([FromBody] ShoppingCart basket)
         {
-            var obj = await _basketRepo.UpdateBasket(basket);
-
-            if (obj == null)
+            if (basket == null || !ModelState.IsValid)
             {
                 ModelState.AddModelError("", $"Somthing went wrong when Editing the record {basket.UserName}");
                 return BadRequest(ModelState);
             }
 
+            var obj = await _basketRepo.UpdateBasket(basket);
             return StatusCode(204, obj);
         }
 
