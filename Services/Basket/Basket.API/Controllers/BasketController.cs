@@ -1,4 +1,5 @@
 ﻿using Basket.API.Entities;
+using Basket.API.GrpcServices;
 using Basket.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,12 @@ namespace Basket.API.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketRepository _basketRepo;
+        private readonly DiscountGrpcService _disGrpcServ;
 
-        public BasketController(IBasketRepository basketRepository)
+        public BasketController(IBasketRepository basketRepository , DiscountGrpcService discountGrpcService)
         {
             _basketRepo = basketRepository;
+            _disGrpcServ = discountGrpcService;
         }
 
         [HttpGet("{username}")]
@@ -46,6 +49,12 @@ namespace Basket.API.Controllers
             {
                 ModelState.AddModelError("", $"Somthing went wrong when Editing the record {basket.UserName}");
                 return BadRequest(ModelState);
+            }
+
+            foreach(var item in basket.Items)
+            {
+                var coupon = await _disGrpcServ.GetDiscountAsync(item.ProductName);
+                item.Price -= coupon.Amount;
             }
 
             var obj = await _basketRepo.UpdateBasket(basket);
