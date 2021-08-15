@@ -42,12 +42,11 @@ namespace Basket.API.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> UpdateBasket([FromBody] ShoppingCart basket)
         {
             if (basket == null || !ModelState.IsValid)
             {
-                ModelState.AddModelError("", $"Somthing went wrong when Editing the record {basket.UserName}");
                 return BadRequest(ModelState);
             }
 
@@ -58,7 +57,7 @@ namespace Basket.API.Controllers
             }
 
             var obj = await _basketRepo.UpdateBasket(basket);
-            return StatusCode(204, obj);
+            return Ok(obj);
         }
 
         [HttpDelete("username")]
