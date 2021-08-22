@@ -13,11 +13,11 @@ namespace Catalog.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public class ProductController : ControllerBase
+    public class CatalogController : ControllerBase
     {
         private readonly IProductRepository _prodRepo;
 
-        public ProductController(IProductRepository productRepository)
+        public CatalogController(IProductRepository productRepository)
         {
             _prodRepo = productRepository;
         }

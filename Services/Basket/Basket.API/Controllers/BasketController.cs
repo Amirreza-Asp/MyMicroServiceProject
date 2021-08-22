@@ -47,7 +47,7 @@ namespace Basket.API.Controllers
             return Ok(obj);
         }
 
-        [HttpPut]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> UpdateBasket([FromBody] ShoppingCart basket)
@@ -74,7 +74,8 @@ namespace Basket.API.Controllers
             await _basketRepo.RemoveBasket(username);
             return StatusCode(204);
         }
-
+        
+        [Route("[action]")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
